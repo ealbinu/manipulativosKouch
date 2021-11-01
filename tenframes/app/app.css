@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+}
+.activity {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 800px;
+  background: #f5f5f5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+}
+@media (max-width: 590px) {
+  .activity {
+    flex-direction: column;
+  }
+}
+.activity .sectionDraw {
+  width: 30%;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 590px) {
+  .activity .sectionDraw {
+    width: 100%;
+    height: 40%;
+  }
+}
+.activity .sectionFrames {
+  width: 70%;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 590px) {
+  .activity .sectionFrames {
+    width: 100%;
+    height: 60%;
+  }
+}
+.drawTools {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  gap: 6px;
+  padding: 10px;
+}
+.drawTools button {
+  font-size: 16px;
+}
+canvas#canvasDraw {
+  width: 100%;
+  height: 100%;
+}
+.separator {
+  flex-grow: 1;
+}
+.framesTools {
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 6px;
+}
+@media (max-width: 590px) {
+  .framesTools {
+    gap: 4px;
+  }
+}
+.framesTools img {
+  width: 100%;
+  max-height: 40px;
+}
+@media (max-width: 590px) {
+  .framesTools img {
+    max-height: 28px;
+  }
+}
+.framesTools .frames .frame {
+  max-width: 100px;
+}
+@media (max-width: 590px) {
+  .framesTools .frames .frame {
+    max-width: 60px;
+  }
+}
+.framesTools .tokens {
+  display: flex;
+}
+.framesTools .tokens div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.framesTools .tokens div span {
+  position: absolute;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+@media (max-width: 590px) {
+  .framesTools .tokens div span {
+    font-size: 0.7rem;
+  }
+}
+.framesTools button {
+  font-size: 16px;
+}
+.token {
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 590px) {
+  .token {
+    width: 28px;
+    height: 28px;
+  }
+}
+.token img {
+  width: 100%;
+}
+.token.removing {
+  transition: all .5s;
+  transform: scale(1.5) !important;
+  opacity: 0;
+}
+button {
+  flex-shrink: 0;
+  border: none;
+  background: #2591EE;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+@media (max-width: 590px) {
+  button {
+    width: 28px;
+    height: 28px;
+  }
+}
+button:active {
+  font-size: 20px;
+}
+button.active {
+  color: #2591EE;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.framesArea {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.framesArea > .token {
+  position: absolute;
+}
+.framesArea .dropzoneFrame {
+  width: 50%;
+  height: 25%;
+  border: 2px solid #f5f5f5;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.framesArea .dropzoneFrame.hover {
+  border: 2px dashed #2591EE;
+}
+.framesArea .dropzoneFrame .token {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  flex-shrink: 1;
+}
+.framesArea .withframe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.framesArea .withframe .fdropContainer {
+  display: flex;
+}
+.framesArea.vertical .dropzoneFrame {
+  width: 25%;
+  height: 50%;
+}
+.framesArea.vertical .withframe {
+  flex-direction: row;
+}
+.framesArea.vertical .withframe .fdropContainer {
+  flex-direction: column;
+}
+.instructions {
+  position: fixed;
+  z-index: 9999;
+  left: 5%;
+  top: 3%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 90%;
+  height: 96%;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.instructions.close {
+  display: none;
+}
+.instructions button {
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+}
+.instructions button.continuar {
+  width: auto;
+  height: auto;
+  display: block;
+  font-size: 1rem;
+  border-radius: 0px;
+  padding: 10px 40px;
+}
+.fdrop {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #2591EE;
+  background: rgba(37, 145, 238, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 590px) {
+  .fdrop {
+    width: 24px;
+    height: 24px;
+  }
+}
+.fdrop.fill {
+  border-style: dashed;
+  background: rgba(37, 145, 238, 0.05);
+}
+.fdrop .token {
+  position: static;
+  width: 70% !important;
+  height: 70%;
+}
+.fdrop .token div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*# sourceMappingURL=app.css.map */

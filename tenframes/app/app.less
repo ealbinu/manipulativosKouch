@@ -1,0 +1,300 @@
+*{ margin: 0; padding: 0; }
+
+
+
+@main: #2591EE;
+
+html{height: 100%;}
+body{
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+}
+
+.activity{
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 800px;
+    background: #f5f5f5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    display: flex;
+    @media (max-width: 590px){
+        flex-direction: column;
+    }
+    .sectionDraw{
+        width: 30%;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        @media (max-width: 590px){
+            width: 100%;
+            height: 40%;
+        }
+    }
+    .sectionFrames{
+        width: 70%;
+        background:#f0f0f0;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 590px){
+            width: 100%;
+            height: 60%;
+        }
+    }
+}
+
+
+
+
+.drawTools{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    gap: 6px;
+    padding: 10px;
+    button{
+        font-size: 16px;
+    }
+}
+canvas#canvasDraw{
+    width: 100%;
+    height: 100%;
+}
+
+
+.separator{
+    flex-grow: 1;
+}
+
+.framesTools{
+    background: #fff;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 6px;
+    @media (max-width: 590px){
+        gap: 4px;
+    }
+    img{
+        width: 100%;
+        max-height: 40px;
+        @media (max-width: 590px){
+            max-height: 28px;
+        }
+    }
+    .frames{
+        .frame{
+            max-width: 100px;
+            @media (max-width: 590px){
+                max-width: 60px;
+            }
+        }
+    }
+    .tokens{
+        display: flex;
+        div{
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                position: absolute;
+                display: block;
+                color:#fff;
+                font-weight: bold;
+                font-size: 1.1rem;
+                @media (max-width: 590px){
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    button{
+        font-size: 16px;
+    }
+}
+
+
+.token{
+    width: 40px;
+    height: 40px;
+    @media (max-width: 590px){
+        width: 28px;
+        height: 28px;
+    }
+    img{
+        width: 100%;
+    }
+    &.removing{
+        transition: all .5s;
+        transform: scale(1.5) !important;
+        opacity: 0;
+    }
+}
+
+
+
+
+button{
+    flex-shrink: 0;
+    border: none;
+    background: @main;
+    color:#fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @media (max-width: 590px){
+        width: 28px;
+        height: 28px;
+    }
+    &:active{
+        font-size: 20px;
+    }
+    &.active{
+        color:@main;
+        background:#fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+}
+
+
+
+
+.framesArea{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    &>.token{
+        position: absolute;
+    }
+    .dropzoneFrame{
+        width: 50%;
+        height: 25%;
+        border: 2px solid #f5f5f5;
+        box-sizing: border-box;
+        &.hover{
+            border: 2px dashed @main;
+        }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        .token{
+            display: inline-block;
+            width: fit-content;
+            height: fit-content;
+            flex-shrink: 1;
+        }
+    }
+    
+    .withframe{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        .fdropContainer{
+            display: flex;
+        }
+    }
+    
+    &.vertical{
+        .dropzoneFrame{
+            width: 25%;
+            height: 50%;
+        }
+        .withframe{
+            flex-direction: row;
+            .fdropContainer{
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+
+
+
+
+.instructions{
+    position: fixed;
+    z-index: 9999;
+    left: 5%;
+    top: 3%;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 90%;
+    height: 96%;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    &.close{
+        display: none;
+    }
+    button{
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+        &.continuar{
+            width: auto;
+            height: auto;
+            display: block;
+            font-size: 1rem;
+            border-radius: 0px;
+            padding: 10px 40px;
+        }
+    }
+}
+
+
+
+
+.fdrop{
+    width: 44px;
+    height: 44px;
+    border: 2px solid @main;
+    background: fade(@main, 15%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 590px){
+        width: 24px;
+        height: 24px;
+    }
+    &.fill{
+        border-style: dashed;
+        background: fade(@main, 5%);
+    }
+    .token{
+        position: static;
+        width: 70% !important;
+        height: 70%;
+        
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
