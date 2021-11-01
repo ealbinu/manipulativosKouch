@@ -54,16 +54,7 @@ function cloneItem(target, dropzone) {
     newElement.lastClick = time;
   });
 
-  function deleteToken(event) {
-    var _this = event.target.parentNode.parentNode;
-    if (_this.parentNode.classList.contains("fill")) {
-      _this.parentNode.classList.remove("fill");
-    }
-    _this.classList.add("removing");
-    setTimeout(function () {
-      _this.remove();
-    }, 500);
-  }
+  //Draggable for already dropped tokens
 
   Draggable.create(newElement, {
     type: "x,y",
@@ -72,6 +63,19 @@ function cloneItem(target, dropzone) {
       dropToken(this, false); //noclone
     },
   });
+}
+
+
+
+function deleteToken(event) {
+  var _this = event.target.parentNode.parentNode;
+  if (_this.parentNode.classList.contains("fill")) {
+    _this.parentNode.classList.remove("fill");
+  }
+  _this.classList.add("removing");
+  setTimeout(function () {
+    _this.remove();
+  }, 500);
 }
 
 // DRAG TOKEN FROM TOOLS

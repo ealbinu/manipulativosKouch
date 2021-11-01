@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" >
+    <title>Balanza matemática</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="app/app.css">
+
+</head>
+<body>
+    <!-- Main -->
+    <div class="activity">
+        <!-- Balanza : SVG -->
+        <div class="balanza">
+            <img src="assets/balanza.svg">
+            <div class="left">
+                <div class="drop" data="-10"></div>
+                <div class="drop" data="-9"></div>
+                <div class="drop" data="-8"></div>
+                <div class="drop" data="-7"></div>
+                <div class="drop" data="-6"></div>
+                <div class="drop" data="-5"></div>
+                <div class="drop" data="-4"></div>
+                <div class="drop" data="-3"></div>
+                <div class="drop" data="-2"></div>
+                <div class="drop" data="-1"></div>
+            </div>
+            <div class="dropCompare"></div>
+            <div class="right">
+                <div class="drop" data="1"></div>
+                <div class="drop" data="2"></div>
+                <div class="drop" data="3"></div>
+                <div class="drop" data="4"></div>
+                <div class="drop" data="5"></div>
+                <div class="drop" data="6"></div>
+                <div class="drop" data="7"></div>
+                <div class="drop" data="8"></div>
+                <div class="drop" data="9"></div>
+                <div class="drop" data="10"></div>
+            </div>
+        </div>
+
+        <div class="tools">
+            <div class="separator"></div>
+            <div class="peso"><img src="assets/peso.svg"></div>
+            <div class="comparers">
+                <div class="compare"><img src="assets/compareEqu.svg"></div>
+                <div class="compare"><img src="assets/compareMax.svg"></div>
+                <div class="compare"><img src="assets/compareMin.svg"></div>
+            </div>
+            <div class="separator"></div>
+            <button class="material-icons" onclick="resetAll()" >delete_forever</button>
+            <div class="separator"></div>
+        </div>
+        
+
+    </div>
+
+
+    <div class="instructions">
+        <h1>Balanza</h1>
+        <div class="separator"></div>
+        <h2>¿Cómo usar?</h2>
+        <p>Arrastra los pesos a la balanza colocándolo en números. Puedes colocar hasta 5 pesos en cada número. Para eliminarlos individualmente suéltalos afuera de la balanza.</p>
+        <div class="separator"></div>
+        <h2>Comparadores</h2>
+        <p>Utiliza los pesos de comparadores para mostrar si la balanza es igual, mayor o menor. Arrástralos al circulo central de la balanza.</p>
+        <div class="separator"></div>
+        <h2>Reiniciar</h2>
+        <p>Reinicia la balanza dando click en el botón de <button class="material-icons">delete_forever</button>.</p>
+        <div class="separator"></div>
+        <div><button class="continuar" onclick="closeInstructions()">Continuar</button></div>
+    </div>
+
+
+
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/Draggable.min.js"></script>
+
+    <!-- Custom -->
+    <script src="app/app.js"></script>
+</body>
+</html>

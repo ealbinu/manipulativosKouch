@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+}
+.activity {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 800px;
+  background: #f5f5f5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  flex-shrink: 0;
+  border: none;
+  background: #2591EE;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+@media (max-width: 590px) {
+  button {
+    width: 28px;
+    height: 28px;
+  }
+}
+button:active {
+  font-size: 20px;
+}
+button.active {
+  color: #2591EE;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.instructions {
+  position: fixed;
+  z-index: 9999;
+  left: 5%;
+  top: 3%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 90%;
+  height: 96%;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.instructions.close {
+  display: none;
+}
+.instructions button {
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+}
+.instructions button.continuar {
+  width: auto;
+  height: auto;
+  display: block;
+  font-size: 1rem;
+  border-radius: 0px;
+  padding: 10px 40px;
+}
+.separator {
+  flex-grow: 1;
+}
+.balanza {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  max-width: 800px;
+}
+.balanza img {
+  width: 100%;
+}
+.balanza .left,
+.balanza .right {
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 43.7%;
+  display: flex;
+}
+.balanza .right {
+  right: 1.2%;
+}
+.balanza .left {
+  left: 1.2%;
+}
+.balanza .dropCompare {
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  margin-left: -2.5%;
+}
+.balanza .dropCompare .compare {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+.balanza .drop {
+  width: 10%;
+  height: 100%;
+  position: relative;
+}
+.balanza .drop .peso {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  z-index: 5;
+}
+.balanza .drop .peso:nth-child(2) {
+  top: 45%;
+  z-index: 4;
+}
+.balanza .drop .peso:nth-child(3) {
+  top: 55%;
+  z-index: 3;
+}
+.balanza .drop .peso:nth-child(4) {
+  top: 65%;
+  z-index: 2;
+}
+.balanza .drop .peso:nth-child(5) {
+  top: 75%;
+  z-index: 1;
+}
+.tools {
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+.tools .comparers {
+  display: flex;
+  gap: 6px;
+}
+/*# sourceMappingURL=app.css.map */
